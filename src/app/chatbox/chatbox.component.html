@@ -1,0 +1,16 @@
+<div style="width: 50%; margin-left: auto; margin-right: auto;">
+    <nb-chat
+             size="large"
+             title="Medical GPt"
+             scrollBottom="true">
+        <nb-chat-message *ngFor="let message of messages"
+                         type="text"
+                         [message]="message.text"
+                         [sender]="message.sender"
+                         [reply]="message.reply">
+        </nb-chat-message>
+
+        <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+        </nb-chat-form>
+    </nb-chat>
+</div>
