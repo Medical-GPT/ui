@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatboxComponent } from './chatbox.component';
-import { NbChatModule } from '@nebular/theme';
+import { NbChatModule, NbSpinnerModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -10,7 +10,8 @@ import { NbChatModule } from '@nebular/theme';
   ],
   imports: [
     CommonModule,
-    NbChatModule
+    NbChatModule,
+    NbSpinnerModule,
   ],
   exports: [
     ChatboxComponent

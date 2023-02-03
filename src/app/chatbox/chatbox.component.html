@@ -1,8 +1,8 @@
 <div style="width: 50%; margin-left: auto; margin-right: auto;">
-    <nb-chat
-             size="large"
+    <nb-chat size="large"
              title="Medical GPt"
-             scrollBottom="true">
+             scrollBottom="true"
+             [status]="state.theme">
         <nb-chat-message *ngFor="let message of messages"
                          type="text"
                          [message]="message.text"
@@ -10,7 +10,11 @@
                          [reply]="message.reply">
         </nb-chat-message>
 
-        <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+        <nb-chat-form (send)="sendMessage($event)"
+                      [nbSpinner]="state.loading"
+                      [messagePlaceholder]="state.placeholderText">
         </nb-chat-form>
     </nb-chat>
 </div>
+
+<button (click)="respond()">Cycle state</button>
