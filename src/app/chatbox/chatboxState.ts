@@ -1,5 +1,5 @@
 export interface ChatboxState {
-    theme: string;
-    loading: boolean;
-    placeholderText: string;
+	theme: string;
+	loading: boolean;
+	placeholderText: string;
 }

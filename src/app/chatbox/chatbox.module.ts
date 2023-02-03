@@ -5,16 +5,16 @@ import { NbChatModule, NbSpinnerModule } from '@nebular/theme';
 
 
 @NgModule({
-  declarations: [
-    ChatboxComponent
-  ],
-  imports: [
-    CommonModule,
-    NbChatModule,
-    NbSpinnerModule,
-  ],
-  exports: [
-    ChatboxComponent
-  ]
+	declarations: [
+		ChatboxComponent
+	],
+	imports: [
+		CommonModule,
+		NbChatModule,
+		NbSpinnerModule,
+	],
+	exports: [
+		ChatboxComponent
+	]
 })
 export class ChatboxModule { }
