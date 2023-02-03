@@ -32,10 +32,7 @@ export class ChatboxComponent implements OnInit {
 		};
 
 		this.messages.push(newMessage);
-	}
-
-	respond(): void {
-		this.chatboxService.mockResponse();
+		this.chatboxService.sendMessage(event.message);
 	}
 }
 
