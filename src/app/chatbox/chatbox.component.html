@@ -1,20 +1,20 @@
 <div style="width: 50%; margin-left: auto; margin-right: auto;">
-    <nb-chat size="large"
-             title="Medical GPt"
-             scrollBottom="true"
-             [status]="state.theme">
-        <nb-chat-message *ngFor="let message of messages"
-                         type="text"
-                         [message]="message.text"
-                         [sender]="message.sender"
-                         [reply]="message.reply">
-        </nb-chat-message>
+	<nb-chat size="large"
+			 title="Medical GPt"
+			 scrollBottom="true"
+			 [status]="state.theme">
+		<nb-chat-message *ngFor="let message of messages"
+						 type="text"
+						 [message]="message.text"
+						 [sender]="message.sender"
+						 [reply]="message.reply">
+		</nb-chat-message>
 
-        <nb-chat-form (send)="sendMessage($event)"
-                      [nbSpinner]="state.loading"
-                      [messagePlaceholder]="state.placeholderText">
-        </nb-chat-form>
-    </nb-chat>
+		<nb-chat-form (send)="sendMessage($event)"
+					  [nbSpinner]="state.loading"
+					  [messagePlaceholder]="state.placeholderText">
+		</nb-chat-form>
+	</nb-chat>
 </div>
 
 <button (click)="respond()">Cycle state</button>

@@ -1,5 +1,5 @@
 export interface Message {
-    sender: string;
-    text: string;
-    reply: boolean;
+	sender: string;
+	text: string;
+	reply: boolean;
 }
