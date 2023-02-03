@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatboxComponent } from './chatbox.component';
-import { NbChatModule, NbSpinnerModule } from '@nebular/theme';
-
+import { NbChatModule } from '@nebular/theme';
+import { NbPopoverModule } from '@nebular/theme';
 
 @NgModule({
 	declarations: [
@@ -11,7 +11,7 @@ import { NbChatModule, NbSpinnerModule } from '@nebular/theme';
 	imports: [
 		CommonModule,
 		NbChatModule,
-		NbSpinnerModule,
+		NbPopoverModule
 	],
 	exports: [
 		ChatboxComponent
