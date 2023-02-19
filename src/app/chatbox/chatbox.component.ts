@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Message } from './message';
 import { ChatboxService } from './chatbox.service';
 import { ViewChild } from '@angular/core';
@@ -9,7 +9,7 @@ import { NbPopoverDirective } from '@nebular/theme';
 	templateUrl: './chatbox.component.html',
 	styleUrls: ['./chatbox.component.scss']
 })
-export class ChatboxComponent implements OnInit {
+export class ChatboxComponent implements OnInit, OnDestroy {
 
 	messages: Message[] = [GREETINGS_MESSAGE];
 	inputText: string;
@@ -19,6 +19,9 @@ export class ChatboxComponent implements OnInit {
 	constructor(private chatboxService: ChatboxService) { }
 
 	ngOnInit(): void {
+
+		this.chatboxService.connect();
+
 		this.chatboxService.responses.subscribe((message: Message) => {
 			this.messages.push(message);
 		});
@@ -33,6 +36,10 @@ export class ChatboxComponent implements OnInit {
 
 		this.messages.push(newMessage);
 		this.chatboxService.sendMessage(event.message);
+	}
+
+	ngOnDestroy(): void {
+		this.chatboxService.close();
 	}
 }
 

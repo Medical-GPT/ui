@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Message } from './message';
 import { Subject } from 'rxjs';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
 	providedIn: 'root'
 })
@@ -9,15 +11,24 @@ export class ChatboxService {
 
 	responses = new Subject<Message>();
 
-	constructor(private http: HttpClient) { }
+	private socket: WebSocketSubject<{ message: string; }>;
 
-	sendMessage(message: string): void {
-		this.http
-			.post('http://localhost:3000/message', { message })
-			.subscribe((response) => this.respond(response));
+	connect() {
+		this.socket = webSocket(`ws://${environment.API}/ws`);
+		this.socket.subscribe((response: any) => {
+			this.respond(response);
+		});
 	}
 
-	respond(data: any) {
+	sendMessage(message: string) {
+		this.socket.next({ message });
+	}
+
+	close() {
+		this.socket.complete();
+	}
+
+	respond(data: { message: string; }) {
 		const { message: text } = data;
 		const message: Message = {
 			sender: '',
