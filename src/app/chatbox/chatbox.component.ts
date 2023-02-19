@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Message } from './message';
 import { ChatboxService } from './chatbox.service';
-import { ViewChild } from '@angular/core';
-import { NbPopoverDirective } from '@nebular/theme';
 
 @Component({
 	selector: 'app-chatbox',
@@ -13,8 +11,6 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 
 	messages: Message[] = [GREETINGS_MESSAGE];
 	inputText: string;
-	popoverTimeout: any;
-	@ViewChild(NbPopoverDirective) popover: NbPopoverDirective;
 
 	constructor(private chatboxService: ChatboxService) { }
 
