@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Message } from './message';
+import { Message, CHATBOT_NAME } from './message';
 import { ChatboxService } from './chatbox.service';
 
 @Component({
 	selector: 'app-chatbox',
-	templateUrl: './chatbox.component.html',
-	styleUrls: ['./chatbox.component.scss']
+	templateUrl: './chatbox.component.html'
 })
 export class ChatboxComponent implements OnInit, OnDestroy {
 
@@ -38,6 +37,6 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 
 const GREETINGS_MESSAGE: Message = {
 	text: "Hi! How may I help today?",
-	sender: "GPT GP",
+	sender: CHATBOT_NAME,
 	reply: false,
 };

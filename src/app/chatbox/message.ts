@@ -3,3 +3,5 @@ export interface Message {
 	text: string;
 	reply: boolean;
 }
+
+export const CHATBOT_NAME = 'GPT GP';
