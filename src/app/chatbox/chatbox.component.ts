@@ -15,9 +15,6 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 	constructor(private chatboxService: ChatboxService) { }
 
 	ngOnInit(): void {
-
-		this.chatboxService.connect();
-
 		this.chatboxService.responses.subscribe((message: Message) => {
 			this.messages.push(message);
 		});

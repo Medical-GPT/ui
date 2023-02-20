@@ -13,8 +13,8 @@ export class ChatboxService {
 
 	private socket: WebSocketSubject<{ message: string; }>;
 
-	connect() {
-		this.socket = webSocket(`ws://${environment.API}/ws`);
+	constructor() {
+		this.socket = webSocket(`ws://${environment.API}/session`);
 		this.socket.subscribe((response: any) => {
 			this.respond(response);
 		});
