@@ -11,7 +11,7 @@ export class ChatboxService {
 
 	responses = new Subject<Message>();
 
-	private socket: WebSocketSubject<{ message: string; }>;
+	private socket: WebSocketSubject<{ message: string; model: string; }>;
 
 	constructor() {
 		this.socket = webSocket(`ws://${environment.API}/session`);
@@ -21,7 +21,7 @@ export class ChatboxService {
 	}
 
 	sendMessage(message: string) {
-		this.socket.next({ message });
+		this.socket.next({ message, model: 'medical-finetuned' });
 	}
 
 	close() {
