@@ -1,12 +1,12 @@
-<div style="width: 50%; margin-left: auto; margin-right: auto;">
+<div style="width: 77%; margin-left: 20%;">
 	<nb-chat size="large"
-			 title="Medical GPt"
+			 [title]="modelInfo.alias"
 			 scrollBottom="true"
-			 status="primary">
+			 [status]="modelInfo.color">
 		<nb-chat-message *ngFor="let message of messages"
 						 type="text"
 						 [message]="message.text"
-						 [sender]="message.sender"
+						 [sender]="modelInfo.alias"
 						 [reply]="message.reply">
 		</nb-chat-message>
 

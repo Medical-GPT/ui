@@ -20,8 +20,8 @@ export class ChatboxService {
 		});
 	}
 
-	sendMessage(message: string) {
-		this.socket.next({ message, model: 'medical-finetuned' });
+	sendMessage(message: string, model: string = 'medical-finetuned') {
+		this.socket.next({ message, model });
 	}
 
 	close() {

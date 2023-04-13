@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Message, CHATBOT_NAME } from './message';
 import { ChatboxService } from './chatbox.service';
+import { ModelService } from '../model/model.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-chatbox',
@@ -11,9 +13,28 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 	messages: Message[] = [GREETINGS_MESSAGE];
 	inputText: string;
 
-	constructor(private chatboxService: ChatboxService) { }
+	modelInfo: { name: string; alias: string; color: string; } = {
+		name: 'medical',
+		alias: 'Medical',
+		color: 'primary'
+	};
+
+	constructor(
+		private route: ActivatedRoute,
+		private chatboxService: ChatboxService,
+		private modelService: ModelService
+	) { }
 
 	ngOnInit(): void {
+		this.route.params.subscribe((params) => {
+			const result = this.modelService.getModelInfo(params['modelName']);
+			if (result) {
+				this.modelInfo = result;
+			}
+			this.messages = [GREETINGS_MESSAGE];
+			this.inputText = '';
+		});
+
 		this.chatboxService.responses.subscribe((message: Message) => {
 			this.messages.push(message);
 		});
