@@ -20,7 +20,7 @@ export class ChatboxService {
 		});
 	}
 
-	sendMessage(message: string, model: string = 'medical-finetuned') {
+	sendMessage(message: string, model: string) {
 		this.socket.next({ message, model });
 	}
 

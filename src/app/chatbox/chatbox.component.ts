@@ -48,7 +48,7 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 		};
 
 		this.messages.push(newMessage);
-		this.chatboxService.sendMessage(event.message);
+		this.chatboxService.sendMessage(event.message, this.modelInfo.name);
 	}
 
 	ngOnDestroy(): void {
