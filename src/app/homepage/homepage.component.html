@@ -1,5 +1,69 @@
-<h1>homepage works!homepage works!homepage works!homepage works!homepage works!homepage works!</h1>
-<h1>homepage works!homepage works!homepage works!homepage works!homepage works!homepage works!</h1>
-<h1>homepage works!homepage works!homepage works!homepage works!homepage works!homepage works!</h1>
-<h1>homepage works!homepage works!homepage works!homepage works!homepage works!homepage works!</h1>
-<h1>homepage works!homepage works!homepage works!homepage works!homepage works!homepage works!</h1>
+<div class="content-wrapper" style="width: 77%; margin-left: 20%;">
+    <h1>Welcome to the Medical Chatbot</h1>
+    <nb-card>
+        <nb-card-header>Description</nb-card-header>
+        <nb-card-body>
+            This is a medical chatbot application where you should provide information about your symptoms and the AI
+            will give you advice on what you should do and how you should take care of it along with suggestions on
+            which doctors you should go. The sidebar consists of 4 models each showing the 4 stages of the project.
+        </nb-card-body>
+    </nb-card>
+
+    <nb-card>
+        <nb-card-header>Steps</nb-card-header>
+        <nb-card-body>
+            <nb-stepper orientation="horizontal">
+                <nb-step [label]="labelOne">
+                    <ng-template #labelOne>Pretraining</ng-template>
+                    <h4>1. Pretraining</h4>
+                    <p class="lorem">
+                        The model is shown examples of the English language and tries to learn speaking (explain
+                        pretraining for GPT models).
+                    </p>
+                    <nb-button-group multiple>
+                        <button disabled nbButton outline status="primary" nbStepperPrevious>Prev</button>
+                        <button nbButton outline nbStepperNext>Next</button>
+                    </nb-button-group>
+                </nb-step>
+                <nb-step [label]="labelTwo">
+                    <ng-template #labelTwo>Clean GPT2</ng-template>
+                    <h4>2. GPT2</h4>
+                    <p class="lorem">
+                        Loaded pretrained GPT2 model. It shows how a pretrained model behaves - it tries to complete the
+                        provided text rather than give concrete answers.
+                    </p>
+                    <nb-button-group multiple>
+                        <button nbButton nbStepperPrevious>Prev</button>
+                        <button nbButton nbStepperNext>Next</button>
+                    </nb-button-group>
+                </nb-step>
+                <nb-step [label]="labelThree">
+                    <ng-template #labelThree>Medical GPT2</ng-template>
+                    <h4>3. Fine-tuned GPT2 model for medical Q/A</h4>
+                    <p class="lorem">
+                        Here the model has been fine-tuned on thousands of examples in order to produce answers to
+                        medical questions.
+                    </p>
+                    <nb-button-group multiple>
+                        <button nbButton nbStepperPrevious>Prev</button>
+                        <button nbButton nbStepperNext>Next</button>
+                    </nb-button-group>
+                </nb-step>
+                <nb-step [label]="labelFour">
+                    <ng-template #labelFour>Empathic GPT2</ng-template>
+                    <h4>4. Fine-tuned medical GPT2 + Fine-tuned empathic GPT2</h4>
+                    <p class="lorem">
+                        The previous model is coupled with a GPT2 model finetuned to rewrite any text in a more
+                        empathetic way. Once the medical GPT gives a response it is fed into the empathic model to
+                        produce an empathic
+                        response which still conveys the same information.
+                    </p>
+                    <nb-button-group multiple>
+                        <button nbButton nbStepperPrevious status="primary">Prev</button>
+                        <button nbButton disabled nbStepperNext>Next</button>
+                    </nb-button-group>
+                </nb-step>
+            </nb-stepper>
+        </nb-card-body>
+    </nb-card>
+</div>
