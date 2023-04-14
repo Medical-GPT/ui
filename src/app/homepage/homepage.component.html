@@ -1,67 +1,77 @@
-<div class="content-wrapper" style="width: 77%; margin-left: 20%;">
-    <h1>Welcome to the Medical Chatbot</h1>
-    <nb-card>
+<div class="content-wrapper" style="width: 77%; margin-left: 20%; text-align: justify">
+    <nb-card accent="success">
         <nb-card-header>Description</nb-card-header>
         <nb-card-body>
-            This is a medical chatbot application where you should provide information about your symptoms and the AI
-            will give you advice on what you should do and how you should take care of it along with suggestions on
-            which doctors you should go. The sidebar consists of 4 models each showing the 4 stages of the project.
+            The medical chatbot application is designed to assist individuals in managing their symptoms by gathering
+            information about their condition and providing recommendations on what steps to take next. The AI-powered
+            chatbot provides personalized advice on how to care for their symptoms and suggests suitable medical
+            professionals to consult. The application's sidebar displays four models that represent the different stages
+            of the project, providing users with an overview of the development process. With this chatbot, individuals
+            can easily and quickly access reliable medical advice without the need to leave their home, allowing them to
+            take proactive steps towards their health and wellbeing.
         </nb-card-body>
     </nb-card>
 
-    <nb-card>
+    <nb-card accent="success">
         <nb-card-header>Steps</nb-card-header>
         <nb-card-body>
             <nb-stepper orientation="horizontal">
                 <nb-step [label]="labelOne">
                     <ng-template #labelOne>Pretraining</ng-template>
                     <h4>1. Pretraining</h4>
-                    <p class="lorem">
-                        The model is shown examples of the English language and tries to learn speaking (explain
-                        pretraining for GPT models).
+                    <p>
+                        In the pretraining process for GPT models, the model is exposed to a vast collection of examples
+                        of the English language, with the goal of developing an understanding of its syntax and
+                        structure. Through this exposure, the model attempts to learn the nuances of the language and
+                        build a foundation for generating coherent and meaningful responses to new input. Essentially,
+                        pretraining enables the model to develop a contextual understanding of the English language,
+                        allowing it to generate text that is both grammatically sound and semantically coherent.
                     </p>
-                    <nb-button-group multiple>
-                        <button disabled nbButton outline status="primary" nbStepperPrevious>Prev</button>
-                        <button nbButton outline nbStepperNext>Next</button>
-                    </nb-button-group>
+                    <button class="prev-button" nbButton disabled nbStepperPrevious>prev</button>
+                    <button class="next-button" nbButton nbStepperNext>next</button>
                 </nb-step>
                 <nb-step [label]="labelTwo">
                     <ng-template #labelTwo>Clean GPT2</ng-template>
                     <h4>2. GPT2</h4>
-                    <p class="lorem">
-                        Loaded pretrained GPT2 model. It shows how a pretrained model behaves - it tries to complete the
-                        provided text rather than give concrete answers.
+                    <p>
+                        After loading a pretrained GPT-2 model, its behavior can be observed as it attempts to generate
+                        text that continues or completes the provided input rather than producing definitive responses.
+                        This is a characteristic feature of a language model, which aims to generate text that is
+                        contextually appropriate and grammatically correct. Rather than providing fixed answers, a
+                        pretrained GPT-2 model utilizes its language knowledge to generate text that is coherent and
+                        relevant to the given input, providing users with flexible and natural-sounding responses.
                     </p>
-                    <nb-button-group multiple>
-                        <button nbButton nbStepperPrevious>Prev</button>
-                        <button nbButton nbStepperNext>Next</button>
-                    </nb-button-group>
+                    <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+                    <button class="next-button" nbButton nbStepperNext>next</button>
                 </nb-step>
                 <nb-step [label]="labelThree">
                     <ng-template #labelThree>Medical GPT2</ng-template>
                     <h4>3. Fine-tuned GPT2 model for medical Q/A</h4>
-                    <p class="lorem">
-                        Here the model has been fine-tuned on thousands of examples in order to produce answers to
-                        medical questions.
+                    <p>
+                        The GPT-2 model has been fine-tuned specifically for medical question-and-answer tasks by
+                        training it on a vast dataset consisting of thousands of examples. As a result, the model has
+                        learned to generate responses that are relevant and accurate in the context of medical queries.
+                        By fine-tuning the GPT-2 model, it can provide tailored responses to medical questions,
+                        leveraging its knowledge and understanding of medical terminology and concepts to generate
+                        informative and helpful answers.
                     </p>
-                    <nb-button-group multiple>
-                        <button nbButton nbStepperPrevious>Prev</button>
-                        <button nbButton nbStepperNext>Next</button>
-                    </nb-button-group>
+                    <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+                    <button class="next-button" nbButton nbStepperNext>next</button>
                 </nb-step>
                 <nb-step [label]="labelFour">
                     <ng-template #labelFour>Empathic GPT2</ng-template>
                     <h4>4. Fine-tuned medical GPT2 + Fine-tuned empathic GPT2</h4>
-                    <p class="lorem">
-                        The previous model is coupled with a GPT2 model finetuned to rewrite any text in a more
-                        empathetic way. Once the medical GPT gives a response it is fed into the empathic model to
-                        produce an empathic
-                        response which still conveys the same information.
+                    <p>
+                        The medical GPT-2 model has been coupled with an empathetic GPT-2 model that has been fine-tuned
+                        to rewrite text in a more compassionate and understanding manner. After generating a response,
+                        the medical GPT-2 model feeds the output into the empathetic model to produce a response that is
+                        both informative and empathetic. This approach enables the model to provide human-like responses
+                        that are not only accurate but also convey a sense of empathy and understanding, which can be
+                        crucial in healthcare settings where patients may require emotional support in addition to
+                        medical advice.
                     </p>
-                    <nb-button-group multiple>
-                        <button nbButton nbStepperPrevious status="primary">Prev</button>
-                        <button nbButton disabled nbStepperNext>Next</button>
-                    </nb-button-group>
+                    <button class="prev-button" nbButton nbStepperPrevious>prev</button>
+                    <button class="next-button" nbButton disabled nbStepperNext>next</button>
                 </nb-step>
             </nb-stepper>
         </nb-card-body>
