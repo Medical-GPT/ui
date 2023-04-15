@@ -1,7 +1,5 @@
 export interface Message {
-	sender: string;
+	user: { name: string; avatar: string; };
 	text: string;
 	reply: boolean;
 }
-
-export const CHATBOT_NAME = 'GPT GP';

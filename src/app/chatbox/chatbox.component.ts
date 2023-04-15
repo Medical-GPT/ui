@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Message, CHATBOT_NAME } from './message';
+import { Message } from './message';
 import { ChatboxService } from './chatbox.service';
 import { ModelService } from '../model/model.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChatboxComponent implements OnInit, OnDestroy {
 
-	messages: Message[] = [GREETINGS_MESSAGE];
+	messages: Message[] = [];
 	inputText: string;
 
 	modelInfo: { name: string; alias: string; color: string; } = {
@@ -31,19 +31,30 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 			if (result) {
 				this.modelInfo = result;
 			}
-			this.messages = [GREETINGS_MESSAGE];
+			this.messages = [greetingsMessage(this.modelInfo.alias, this.modelInfo.color)];
 			this.inputText = '';
 		});
 
-		this.chatboxService.responses.subscribe((message: Message) => {
-			this.messages.push(message);
+		this.chatboxService.responses.subscribe((messageText: string) => {
+			const newMessage: Message = {
+				text: messageText,
+				user: {
+					name: this.modelInfo.alias,
+					avatar: `assets/${this.modelInfo.color}.png`
+				},
+				reply: false
+			};
+			this.messages.push(newMessage);
 		});
 	}
 
 	sendMessage(event: { message: string; }): void {
 		const newMessage: Message = {
 			text: event.message,
-			sender: "You",
+			user: {
+				name: "You",
+				avatar: ""
+			},
 			reply: true
 		};
 
@@ -56,8 +67,13 @@ export class ChatboxComponent implements OnInit, OnDestroy {
 	}
 }
 
-const GREETINGS_MESSAGE: Message = {
-	text: "Hi! How may I help today?",
-	sender: CHATBOT_NAME,
-	reply: false,
-};
+function greetingsMessage(chatbotName: string, avatar: string): Message {
+	return {
+		text: "Hi! How may I help today?",
+		user: {
+			name: chatbotName,
+			avatar: `assets/${avatar}.png`
+		},
+		reply: false,
+	};
+}

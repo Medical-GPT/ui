@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Message, CHATBOT_NAME } from './message';
+import { Message } from './message';
 import { Subject } from 'rxjs';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { environment } from 'src/environments/environment';
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ChatboxService {
 
-	responses = new Subject<Message>();
+	responses = new Subject<string>();
 
 	private socket: WebSocketSubject<{ message: string; model: string; }>;
 
@@ -30,11 +30,6 @@ export class ChatboxService {
 
 	respond(data: { message: string; }) {
 		const { message: text } = data;
-		const message: Message = {
-			sender: CHATBOT_NAME,
-			text,
-			reply: false
-		};
-		this.responses.next(message);
+		this.responses.next(text);
 	}
 }
