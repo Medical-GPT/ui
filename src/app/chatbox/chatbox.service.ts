@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Message } from './message';
 import { Subject } from 'rxjs';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { environment } from 'src/environments/environment';
