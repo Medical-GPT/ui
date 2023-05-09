@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { WebSocketSubject } from 'rxjs/webSocket';
 import { environment } from 'src/environments/environment';
+import { SocketFactoryService } from '../utils/socket-factory.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -12,8 +13,9 @@ export class ChatboxService {
 
 	private socket: WebSocketSubject<{ message: string; model: string; }>;
 
-	constructor() {
-		this.socket = webSocket(`ws://${environment.API}/session`);
+	constructor(private socketFactory: SocketFactoryService) {
+		console.log(socketFactory);
+		this.socket = socketFactory.makeSocket(`ws://${environment.API}/session`);
 		this.socket.subscribe((response: any) => {
 			this.respond(response);
 		});
