@@ -8,8 +8,12 @@
 #--------------------------------------------------
 install: ## Installs node dependencies
 	@npm install
-run: ## Runs the UI 
+run: ## Runs the UI
 	@ng serve --port 5000
+
+test: ## Runs unit tests
+	@ng test
+
 .PHONY:install run help
 clean: ## Cleans up temporary files
 	@echo "==> Cleaning up node modules ..."
