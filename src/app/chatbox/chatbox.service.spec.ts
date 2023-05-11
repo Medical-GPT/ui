@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { ChatboxService } from './chatbox.service';
 import { WebSocketSubject } from 'rxjs/webSocket';
 import { SocketFactoryService } from '../utils/socket-factory.service';
-import { of, Subject } from 'rxjs';
 
 describe('ChatboxService', () => {
     let service: ChatboxService;
